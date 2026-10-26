@@ -1,0 +1,45 @@
+/*
+  Portfolio styles: only what .streamlit/config.toml can't express.
+  Colours repeat config.toml's for the custom elements below.
+  Selectors on data-testid are Streamlit internals (checked on 1.66.1).
+*/
+
+:root {
+  --sage: #8fa37a;
+  --sage-deep: #5f7350;
+  --sage-ink: #4f6143;  /* sage text on the #eae8e1 surface; #5f7350 is only 4.2:1 there */
+  --muted: #55534e;
+  --serif: "Cormorant Garamond", Georgia, serif;
+}
+
+/* A readable measure on wide screens; whitespace around it. */
+[data-testid="stMainBlockContainer"] { max-width: 1180px; padding-top: 4rem; padding-bottom: 5rem; }
+[data-testid="stMain"] [data-testid="stMarkdownContainer"] p { max-width: 72ch; }
+h1 { line-height: 1.05 !important; }
+@media (max-width: 1024px) {
+  h1 { font-size: 2.75rem !important; }  /* the full name stays at two lines on tablets and phones */
+}
+
+/* Hero (prefixed with the markdown container to outrank Streamlit's paragraph rule) */
+[data-testid="stMarkdownContainer"] .eyebrow { font-family: var(--serif); font-style: italic; font-size: 1.5rem; color: var(--muted); margin: 0; }
+[data-testid="stMarkdownContainer"] .hero-line { font-size: 1.125rem; color: var(--sage-deep); letter-spacing: 0.02em; margin: 0 0 0.5rem; }
+.st-key-hero { margin-bottom: 3rem; }
+
+/* Metrics: framed by thin sage rules, like a print's caption line. */
+.st-key-metrics { border-top: 1px solid var(--sage); border-bottom: 1px solid var(--sage); padding: 1.25rem 0; margin-bottom: 3rem; }
+
+/* Tabs are the main navigation: body size, not smaller. No boxes or focus rings around
+   the labels; only the active tab's sage underline. Keyboard focus shows as underlined text. */
+[data-testid="stTab"] p { font-size: 1rem; }
+[data-testid="stTab"],
+[data-testid="stTab"]:focus,
+[data-testid="stTab"]:focus-visible { border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; }
+[data-testid="stTab"]:focus-visible p { text-decoration: underline; text-underline-offset: 6px; }
+
+/* Secondary buttons: an outline in deep sage. */
+[data-testid="stBaseButton-secondary"],
+[data-testid="stBaseLinkButton-secondary"] { background: transparent; border-color: var(--sage-ink); color: var(--sage-ink); }
+
+/* About: milestone year labels in the serif italic, one row per year group. */
+.st-key-timeline [data-testid="stMarkdownContainer"] .when { font-family: var(--serif); font-style: italic; font-size: 1.25rem; color: var(--sage-deep); margin: 0; }
+.st-key-timeline [data-testid="stHorizontalBlock"] { padding: 0.75rem 0; border-bottom: 1px solid #d6d3c9; }

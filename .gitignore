@@ -1,0 +1,13 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+
+# Not part of the app
+.taste-skill/
+.claude/
+.vscode/
+assets/images/originals/
+REVIEW_REPORT.md
+COMPLIANCE.md
