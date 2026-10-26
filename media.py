@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 ROOT = Path(__file__).resolve().parent
 EXTENSIONS = (".jpg", ".jpeg", ".png", ".webp")
 
-# Size each slot is rendered at.
+# Render width in px per slot ratio; the height follows from the ratio.
 RENDER_WIDTH = {(3, 2): 1200, (4, 5): 960, (1, 1): 800}
 
 # Keep in sync with .streamlit/config.toml and assets/style.css.
@@ -41,11 +41,7 @@ def slot_size(ratio: tuple[int, int]) -> tuple[int, int]:
 
 
 def load_image(path: str, ratio: tuple[int, int], crop: bool = True) -> Image.Image | None:
-    """The picture sized to a `ratio` slot, or None if it's missing or unreadable.
-
-    crop=True fills the slot (center-cropped); crop=False fits the whole picture
-    inside it on a surface-coloured mat, so nothing is cut off or stretched.
-    """
+    """The picture in a `ratio` slot (crop fills it; crop=False fits it whole on a mat), or None."""
     found = find_image(path)
     if found is None:
         return None

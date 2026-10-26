@@ -92,8 +92,7 @@ def build_resume() -> bytes:
         pdf.set_text_color(*MUTED)
         pdf.write(5, clean(f"   {', '.join(p['tech'])}"))
         pdf.ln(5)
-        # Role and outcome say more on a résumé than the website blurb; the blurb is the
-        # fallback while they're still TODO.
+        # Role and outcome say more on a résumé than the website blurb; the blurb is only a fallback.
         details = [f"{label}: {p[key]}" for key, label in (("role", "Role"), ("outcome", "Outcome"))
                    if filled(p[key])]
         if p["link"]:

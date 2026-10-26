@@ -66,7 +66,7 @@ def fresh_app() -> AppTest:
     return AppTest.from_file(str(ROOT / "app.py"), default_timeout=TIMEOUT).run()
 
 
-# ── Content checks ────────────────────────────────────────────
+# Content checks
 print("Content")
 known = {s for skills in SKILLS.values() for s in skills}
 missing = [t for t in project_tech() if t not in known]
@@ -95,7 +95,7 @@ for path in source_files:
         assert word not in text, f"'{word}' still in {path.name}"
 ok("no Piyesa / hardware mentions in the app's source")
 
-# ── Image scenarios ───────────────────────────────────────────
+# Image scenarios
 print("\nImages")
 tmp = Path(tempfile.mkdtemp(prefix="portfolio-test-"))
 real_profile = content.PROFILE_IMAGE
@@ -147,7 +147,7 @@ content.PROFILE_IMAGE = real_profile
 for p, image in zip(PROJECTS, real_project_images):
     p["image"] = image
 
-# ── Download scenarios (temp folder again; your real PDFs are never touched) ──
+# Download scenarios (temp folder again; your real PDFs are never touched)
 print("\nDownloads")
 real_resume, real_certificates = content.RESUME_PDF, content.CERTIFICATES_DIR
 content.RESUME_PDF = str(tmp / "resume.pdf")
@@ -173,7 +173,7 @@ check(at, f"  -> {labels}")
 
 content.RESUME_PDF, content.CERTIFICATES_DIR = real_resume, real_certificates
 
-# ── App checks (with whatever images are really in assets/images) ──
+# App checks (with whatever images are really in assets/images)
 print("\nApp")
 at = fresh_app()
 check(at, "initial run")

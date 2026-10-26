@@ -11,7 +11,6 @@ UNCATEGORIZED = "Uncategorized"
 NON_TOOL_CATEGORIES = {"Areas & Practices"}  # not counted as "languages & tools"
 
 
-# ── Skills ───────────────────────────────────────────────────
 def project_tech() -> list[str]:
     """Every tech tag used by any project, in first-seen order."""
     seen = []
@@ -50,7 +49,6 @@ def count_languages_and_tools() -> int:
     )
 
 
-# ── Projects ─────────────────────────────────────────────────
 def content_problems() -> list[str]:
     """Typos in content.py that would break the filter or cards."""
     problems = []

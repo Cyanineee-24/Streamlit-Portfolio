@@ -1,8 +1,7 @@
 """
-Charles Daragosa — Autobiography & Portfolio
-Built with Streamlit.  Run with:  streamlit run app.py
-Edit content.py to personalize everything. Look and feel: .streamlit/config.toml
-(theme) and assets/style.css (the few details the theme can't express).
+Charles Daragosa — Autobiography & Portfolio. Run with:  streamlit run app.py
+Edit content.py to personalize everything; the look is .streamlit/config.toml (theme)
+plus assets/style.css (the few details the theme can't express).
 """
 
 import datetime as dt
@@ -44,9 +43,7 @@ ROOT = Path(__file__).parent
 STYLE = ROOT / "assets" / "style.css"
 TABS = ["About", "Skills", "Projects", "Contact"]
 
-# ─────────────────────────────────────────────────────────────
-# PAGE CONFIG (must be the first Streamlit call)
-# ─────────────────────────────────────────────────────────────
+# Page config (must be the first Streamlit call)
 st.set_page_config(
     page_title=f"{SHORT_NAME} | Portfolio",
     page_icon=":material/menu_book:",
@@ -55,9 +52,7 @@ st.set_page_config(
 )
 st.html(STYLE)
 
-# ─────────────────────────────────────────────────────────────
-# SIDEBAR
-# ─────────────────────────────────────────────────────────────
+# Sidebar
 def file_label(path: Path) -> str:
     """'C-Programming_Certificate.pdf' -> 'C Programming Certificate'."""
     return path.stem.replace("_", " ").replace("-", " ")
@@ -73,7 +68,7 @@ with st.sidebar:
 
     st.subheader("Downloads", anchor=False)
     resume = ROOT / RESUME_PDF
-    # Your own PDF if it's there; otherwise one built from content.py. Either way it's a PDF.
+    # Your own PDF if it's there; otherwise one generated from content.py.
     st.download_button(
         "Résumé (PDF)", resume.read_bytes() if resume.is_file() else build_resume(),
         file_name=RESUME_DOWNLOAD_NAME, mime="application/pdf",
@@ -85,9 +80,7 @@ with st.sidebar:
             mime="application/pdf", width="stretch", icon=":material/workspace_premium:",
         )
 
-# ─────────────────────────────────────────────────────────────
-# HERO — text left, the portrait "print" right
-# ─────────────────────────────────────────────────────────────
+# Hero
 def show_projects() -> None:
     st.session_state.tab = "Projects"
 
@@ -115,9 +108,7 @@ with st.container(key="metrics"):
     m3.metric("Certifications", len(CERTIFICATIONS))
     m4.metric("CS student since", START_YEAR)
 
-# ─────────────────────────────────────────────────────────────
-# TABS — the active tab lives in st.session_state.tab (and the URL)
-# ─────────────────────────────────────────────────────────────
+# Tabs (the active tab lives in st.session_state.tab and the URL)
 tab_about, tab_skills, tab_projects, tab_contact = st.tabs(TABS, key="tab", bind="query-params")
 
 with tab_about:
@@ -157,8 +148,6 @@ with tab_projects:
 with tab_contact:
     contact.render()
 
-# ─────────────────────────────────────────────────────────────
-# FOOTER
-# ─────────────────────────────────────────────────────────────
+# Footer
 st.divider()
 st.caption(f"© {dt.date.today().year} {NAME} · Section {SECTION} · Built with Streamlit")

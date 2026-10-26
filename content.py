@@ -1,12 +1,8 @@
 """
 All personal content for the portfolio lives here.
 Edit this file to update the site. There is no Streamlit code in this file.
-Search for "TODO" to find what still needs filling in.
 """
 
-# ─────────────────────────────────────────────────────────────
-# PROFILE & LINKS
-# ─────────────────────────────────────────────────────────────
 NAME = "Charles Benedict B. Daragosa"
 SHORT_NAME = "Charles Daragosa"
 PROGRAM = "BS Computer Science"
@@ -20,8 +16,7 @@ EMAIL = "charlesbenedictdaragosa@gmail.com"
 GITHUB = "https://github.com/Cyanineee-24"
 LINKEDIN = "https://www.linkedin.com/in/charles-daragosa-124856445/"
 
-# ─────────────────────────────────────────────────────────────
-# IMAGES — drop files into assets/images/ with these names.
+# Images: drop files into assets/images/ with these names.
 #   .jpg, .jpeg, .png or .webp all work for the same name. Any size works.
 #   The profile photo is center-cropped to 4:5; project screenshots are fitted
 #   whole inside their slot (see image_ratio on each project), never cropped.
@@ -29,31 +24,22 @@ LINKEDIN = "https://www.linkedin.com/in/charles-daragosa-124856445/"
 #   assets/images/originals/ (not used by the app).
 #   Missing profile photo: a labelled stand-in is shown in the same frame.
 #   Missing project screenshot: that project is shown text-only.
-# ─────────────────────────────────────────────────────────────
 PROFILE_IMAGE = "assets/images/img_displayPicture.jpg"  # hero portrait, 4:5
 
-# ─────────────────────────────────────────────────────────────
-# DOWNLOADS (sidebar)
-#   Résumé: if the PDF is missing, a plain-text résumé built from this file is offered instead.
+# Downloads (sidebar)
+#   Résumé: if the PDF is missing, a one-page PDF résumé built from this file is offered instead.
 #   Certificates: every .pdf in the folder gets its own button, labelled from its
 #   file name ("C-Programming-Certificate.pdf" -> "C Programming Certificate").
-# ─────────────────────────────────────────────────────────────
 RESUME_PDF = "assets/resume.pdf"
 RESUME_DOWNLOAD_NAME = "Charles-Daragosa-Resume.pdf"
 CERTIFICATES_DIR = "assets/certificates"
 
-# ─────────────────────────────────────────────────────────────
-# SHORT COPY
-# ─────────────────────────────────────────────────────────────
 HERO_SENTENCE = (
     "Computer Science student at CIT-U, focused on backend work: APIs, databases, "
     "and the business logic that makes applications run."
 )
 CONTACT_SENTENCE = "Write to me about backend internships or a project you're building."
 
-# ─────────────────────────────────────────────────────────────
-# ABOUT — short biography
-# ─────────────────────────────────────────────────────────────
 ABOUT = [
     "I'm a Computer Science student at Cebu Institute of Technology – University, but I didn't "
     "start out in CS. I first studied BS Biology, learning about plants and animals well beyond their "
@@ -73,9 +59,6 @@ ABOUT = [
     "internship opportunities where I can grow as a backend developer.",
 ]
 
-# ─────────────────────────────────────────────────────────────
-# AUTOBIOGRAPHY — in my own words
-# ─────────────────────────────────────────────────────────────
 BACKGROUND = [  # paragraphs
     "I'm from Poblacion, Argao, Cebu. My first dream was to become a humble community doctor, "
     "bringing health services to people who need them most. That's why I first took up Biology. But "
@@ -127,23 +110,21 @@ CERTIFICATIONS = [  # shown as a bulleted list: "name (issuer)"
     {"name": "Claude Code 101", "issuer": "Claude Academy"},
 ]
 
-# ─────────────────────────────────────────────────────────────
-# SKILLS — grouped by category, in display order.
+# Skills: grouped by category, in display order.
 #   skill: my own rating on a 1-5 scale, or None if not rated yet (left out of the chart).
 #     1 Beginner · 2 Basic · 3 Comfortable · 4 Proficient · 5 Advanced
 #   Any tech used in PROJECTS but missing here is still shown, under
 #   "Uncategorized", so the two lists can't silently drift apart.
-# ─────────────────────────────────────────────────────────────
 SKILL_SCALE = {1: "Beginner", 2: "Basic", 3: "Comfortable", 4: "Proficient", 5: "Advanced"}
 
 SKILLS = {
     "Languages": {
         "Python": 5,  
         "Java": 4,  
-        "Kotlin": None,
-        "C#": None,
-        "JavaScript": None,
-        "C": None,
+        "Kotlin": 5,
+        "C#": 3,
+        "JavaScript": 4,
+        "C": 5,
     },
     "Frameworks & Libraries": {
         "Django": 4,  
@@ -168,17 +149,15 @@ SKILLS = {
     },
 }
 
-# ─────────────────────────────────────────────────────────────
-# PROJECTS — shown in this order.
+# Projects: shown in this order.
 #   category:    one of PROJECT_CATEGORIES
 #   status:      one of PROJECT_STATUSES, or None if not set
 #   role:        what I did on the project
 #   outcome:     what came of it (shipped, grade, users, what I learned...)
 #   link:        URL, or "" if there isn't one
-#   image:       screenshot path (see IMAGES above)
+#   image:       screenshot path (see Images above)
 #   image_ratio: (width, height) of the slot the screenshot is fitted into
 #   caption:     short line shown under the screenshot
-# ─────────────────────────────────────────────────────────────
 PROJECT_CATEGORIES = ["Web App", "AI / ML", "Mobile"]
 PROJECT_STATUSES = ["In progress", "Completed", "Prototype"]
 
